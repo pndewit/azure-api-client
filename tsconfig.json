@@ -1,0 +1,18 @@
+{
+    "include": ["**/*.js"],
+    "compilerOptions": {
+        "allowJs": true,
+        "alwaysStrict": true,
+        "checkJs": true,
+        "composite": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "esModuleInterop": true,
+        "lib": ["ESNext"],
+        "module": "NodeNext",
+        "moduleResolution": "Node16",
+        "skipLibCheck": true,
+        "strict": true,
+        "target": "ESNext"
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "azure-api-wrapper",
+  "version": "1.0.0",
+  "description": "A tiny wrapper to communicate with the Azure API",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "types": "tsc --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pndewit/azure-api-wrapper.git"
+  },
+  "keywords": [
+    "azure"
+  ],
+  "author": "Patrick de Wit <2362039+pndewit@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pndewit/azure-api-wrapper/issues"
+  },
+  "homepage": "https://github.com/pndewit/azure-api-wrapper#readme",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

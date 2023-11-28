@@ -1,17 +1,24 @@
 {
-  "name": "azure-api-wrapper",
+  "name": "@pndewit/azure-api-client",
   "version": "1.0.0",
-  "description": "A tiny wrapper to communicate with the Azure API",
+  "description": "A tiny client to communicate with the Azure API",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
+  "types": "dist-types/index.d.ts",
+  "files": [
+    "index.js",
+    "fetch.js",
+    "dist-types/*.d.ts",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "types": "tsc --build"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/pndewit/azure-api-wrapper.git"
+    "url": "git@github.com:pndewit/azure-api-client.git"
   },
   "keywords": [
     "azure"
@@ -19,10 +26,11 @@
   "author": "Patrick de Wit <2362039+pndewit@users.noreply.github.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pndewit/azure-api-wrapper/issues"
+    "url": "https://github.com/pndewit/azure-api-client/issues"
   },
-  "homepage": "https://github.com/pndewit/azure-api-wrapper#readme",
+  "homepage": "https://github.com/pndewit/azure-api-client#readme",
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.2"
   }
 }

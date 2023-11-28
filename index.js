@@ -16,6 +16,11 @@ import { doFetch as fetch } from './fetch.js';
  */
 
 export default class AzureApi {
+  /**
+   * @param {String} pat
+   * @param {String} organization
+   * @param {String} project
+     */
   constructor(pat, organization, project) {
     this.pat = pat;
     this.baseUrl = `https://dev.azure.com/${organization}/${project}/_apis`;
@@ -31,10 +36,10 @@ export default class AzureApi {
    * @returns {Promise<String|Object>}
    */
   getFile(repository, commitOrBranch, path, json = false) {
-    return fetch(
+    return /** @type Promise<String|Object> */ (fetch(
       `${this.baseUrl}/sourceProviders/tfsgit/filecontents?repository=${repository}&commitOrBranch=${commitOrBranch}&path=${path}`,
       { pat: this.pat, json },
-    );
+    ));
   }
 
   repositories = {
@@ -45,7 +50,7 @@ export default class AzureApi {
      * @returns {Promise<Repository>}
      */
     get: repository =>
-      fetch(`${this.baseUrl}/git/repositories/${repository}`, { pat: this.pat, json: true }),
+      /** @type Promise<Repository> */ (fetch(`${this.baseUrl}/git/repositories/${repository}`, { pat: this.pat, json: true })),
   };
 
   pullrequests = {
@@ -57,10 +62,10 @@ export default class AzureApi {
      * @returns {Promise<PullRequest>}
      */
     get: (repository, prId) =>
-      fetch(`${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}`, {
+      /** @type Promise<PullRequest> */ (fetch(`${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}`, {
         pat: this.pat,
         json: true,
-      }),
+      })),
 
     /**
      * Gets all Pull Request labels
@@ -70,10 +75,10 @@ export default class AzureApi {
      * @returns {Promise<{count:Number, value:PullRequestLabel[]}>}
      */
     getLabels: (repository, prId) =>
-      fetch(`${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}/labels`, {
+      /** @type Promise<{count:Number, value:PullRequestLabel[]}> */ (fetch(`${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}/labels`, {
         pat: this.pat,
         json: true,
-      }),
+      })),
 
     /**
      * Adds a label to the given Pull Request
@@ -84,7 +89,7 @@ export default class AzureApi {
      * @returns {Promise<PullRequestLabel>}
      */
     addLabel: (repository, prId, name) =>
-      fetch(
+      /** @type Promise<PullRequestLabel> */ (fetch(
         `${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}/labels?api-version=7.0`,
         {
           pat: this.pat,
@@ -92,7 +97,7 @@ export default class AzureApi {
           method: 'POST',
           body: { name },
         },
-      ),
+      )),
 
     /**
      * Adds a comment to the given Pull Request
@@ -101,11 +106,11 @@ export default class AzureApi {
      * @param prId {String} Pull Request ID
      * @param comment {Object}
      * @param comment.content {String} The comment to be added
-     * @param comment.status {'active', 'fixed'} The comment status
+     * @param comment.status {'active'|'fixed'} The comment status
      * @returns {Promise<PullRequestLabel>}
      */
     postComment: (repository, prId, comment) =>
-      fetch(
+      /** @type Promise<PullRequestLabel> */ (fetch(
         `${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}/threads?api-version=7.0`,
         {
           method: 'POST',
@@ -116,6 +121,6 @@ export default class AzureApi {
           pat: this.pat,
           json: true,
         },
-      ),
+      )),
   };
 }

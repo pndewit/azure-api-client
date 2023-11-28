@@ -1,5 +1,4 @@
 {
-    "include": ["**/*.js"],
     "compilerOptions": {
         "allowJs": true,
         "alwaysStrict": true,
@@ -11,8 +10,11 @@
         "lib": ["ESNext"],
         "module": "NodeNext",
         "moduleResolution": "Node16",
+        "outDir": "dist-types",
         "skipLibCheck": true,
         "strict": true,
         "target": "ESNext"
-    }
+    },
+    "include": ["**/*.js"],
+    "exclude": ["dist-types"]
 }

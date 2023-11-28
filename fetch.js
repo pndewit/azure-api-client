@@ -1,6 +1,6 @@
 export class FetchError extends Error {
   /**
-   * @param {string} message
+   * @param {String} message
    * @param {Response} response
    */
   constructor(message, response) {
@@ -9,20 +9,25 @@ export class FetchError extends Error {
   }
 }
 
+/**
+ * @param {String} url
+ * @param {{ pat?:String, method?:String, headers?:Headers, body?:any, json?:Boolean, parse?:Boolean, retryCount?:Number }} response
+ */
 export async function doFetch(
   url,
-  { pat, method = 'GET', headers = {}, body = undefined, json, parse = true, retryCount = 0 } = {},
+  { pat, method = 'GET', headers, body = undefined, json, parse = true, retryCount = 0 } = {},
 ) {
   console.log(`Fetching (${method}): ${url}`, body || '');
+
+  const requestHeaders = new Headers(headers);
+  requestHeaders.set('Authorization', pat ? `Basic ${pat}` : '');
+  requestHeaders.set('Accept', json ? 'application/json' : 'text/plain');
+  requestHeaders.set('Content-Type', json ? 'application/json' : 'text/plain');
+
   try {
     const response = await fetch(url, {
       method,
-      headers: {
-        Authorization: pat ? `Basic ${pat}` : undefined,
-        Accept: json ? 'application/json' : 'text/plain',
-        'Content-Type': json ? 'application/json' : 'text/plain',
-        ...headers,
-      },
+      headers: requestHeaders,
       body: body ? JSON.stringify(body) : undefined,
     });
 
@@ -48,7 +53,7 @@ export async function doFetch(
       }
       console.log('Retrying', url);
       await new Promise(r => setTimeout(r, 500));
-      return fetch(url, {
+      return doFetch(url, {
         method,
         pat,
         body,

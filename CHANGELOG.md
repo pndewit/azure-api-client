@@ -1,5 +1,11 @@
 # @pndewit/azure-api-client
 
+## 2.0.2
+
+- fix: default AzureAPI reexport in index.js
+- fix: AzureAPI export name
+- fix: outdated typings
+
 ## 2.0.1
 
 - fix: add missing publish of azure-api.js file

@@ -15,7 +15,7 @@ import { doFetch as fetch } from './fetch.js';
  * @property {String} name
  */
 
-export default class AzureApi {
+export default class AzureAPI {
   /**
    * @param {String} pat
    * @param {String} collectionUri

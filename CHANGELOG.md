@@ -1,5 +1,9 @@
 # @pndewit/azure-api-client
 
+## 2.0.5
+
+- fix: Azure PAT base64 encoding
+
 ## 2.0.4
 
 - fix: duplicate API request / as a collection URI already has one

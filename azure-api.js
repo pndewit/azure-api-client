@@ -22,7 +22,7 @@ export default class AzureAPI {
    * @param {String} project
      */
   constructor(pat, collectionUri, project) {
-    this.pat = `:${Buffer.from(pat).toString('base64')}`;
+    this.pat = Buffer.from(`:${pat}`).toString('base64');
     this.baseUrl = `${collectionUri}${project}/_apis`;
   }
 

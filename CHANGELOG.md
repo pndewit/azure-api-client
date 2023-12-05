@@ -1,5 +1,9 @@
 # @pndewit/azure-api-client
 
+## 2.0.4
+
+- fix: duplicate API request / as a collection URI already has one
+
 ## 2.0.3
 
 - fix: default reexport still not working

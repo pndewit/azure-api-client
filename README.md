@@ -13,8 +13,8 @@ npm install --save @pndewit/azure-api-client
 // Import the package
 import AzureAPI from '@pndewit/azure-api-client';
 
-// Set up a client instance with default values for all requests
-const azureAPI = new AzureAPI('my_personal_access_token', 'my_organisation', 'my_project');
+// Set up a client instance with default values for all API requests
+const azureAPI = new AzureAPI('my_personal_access_token', 'https://dev.azure.com/my_organization/', 'my_project');
 
 // Start using the client
 const repository = await azureAPI.repositories.get('my-repository');

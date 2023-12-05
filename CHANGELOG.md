@@ -1,5 +1,9 @@
 # @pndewit/azure-api-client
 
+## 2.0.3
+
+- fix: default reexport still not working
+
 ## 2.0.2
 
 - fix: default AzureAPI reexport in index.js

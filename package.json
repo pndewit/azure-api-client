@@ -1,6 +1,6 @@
 {
   "name": "@pndewit/azure-api-client",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A tiny client to communicate with the Azure API",
   "type": "module",
   "main": "index.js",

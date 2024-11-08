@@ -54,11 +54,12 @@ export async function doFetch(
       console.log('Retrying', url);
       await new Promise(r => setTimeout(r, 500));
       return doFetch(url, {
-        method,
         pat,
+        method,
+        headers,
         body,
         json,
-        headers,
+        parse,
         retryCount: retryCount - 1,
       });
     }

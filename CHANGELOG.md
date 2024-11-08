@@ -1,5 +1,9 @@
 # @pndewit/azure-api-client
 
+## 2.1.0
+
+- feat: Add remove label
+
 ## 2.0.5
 
 - fix: Azure PAT base64 encoding

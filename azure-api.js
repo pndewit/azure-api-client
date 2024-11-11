@@ -101,14 +101,14 @@ export default class AzureAPI {
       ),
 
     /**
-     * Removes a label from the set of those assigned to the given pull request.
+     * Deletes a label from the set of those assigned to the given pull request.
      * See the {@link https://learn.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-labels/delete?view=azure-devops-rest-7.0 docs} for more info
      * @param repository {String} Repository ID
      * @param prId {String} Pull Request ID
      * @param labelIdOrName {String} The label to be removed
      * @returns {Promise<PullRequestLabel>}
      */
-    removeLabel: (repository, prId, labelIdOrName) =>
+    deleteLabel: (repository, prId, labelIdOrName) =>
       /** @type Promise<PullRequestLabel> */ (
         fetch(
           `${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}/labels/${labelIdOrName}?api-version=7.0`,

@@ -2,7 +2,7 @@
 
 ## 2.1.0
 
-- feat: Add remove label
+- feat: Add functionality to delete a label
 
 ## 2.0.5
 

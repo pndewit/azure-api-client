@@ -153,7 +153,7 @@ export default class AzureAPI {
      * @param isDraft {Boolean} Whether the PR is a draft
      * @returns {Promise<PullRequestLabel>}
      */
-    updateStatus: (repository, prId, isDraft) => 
+    updateDraftState: (repository, prId, isDraft) => 
       /** @type Promise<PullRequestLabel> */ (fetch(
         `${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}?api-version=7.0`,
         {

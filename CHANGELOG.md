@@ -1,5 +1,9 @@
 # @pndewit/azure-api-client
 
+## 2.2.0
+
+- feat: Add functionality to update PR's draft status
+
 ## 2.1.0
 
 - feat: Add functionality to delete a label

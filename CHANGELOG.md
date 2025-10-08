@@ -1,5 +1,9 @@
 # @pndewit/azure-api-client
 
+## 2.2.0
+
+- feat: Add method to support updating Pull Request properties
+
 ## 2.1.0
 
 - feat: Add functionality to delete a label

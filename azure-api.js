@@ -10,6 +10,9 @@ import { doFetch as fetch } from './fetch.js';
  * @property {{commitId:String}} lastMergeCommit
  * @property {{commitId:String}} lastMergeTargetCommit
 
+ * @typedef PullRequestUpdateBody {Object}
+ * @property {Boolean} isDraft
+
  * @typedef PullRequestLabel {Object}
  * @property {Boolean} active
  * @property {String} name
@@ -66,6 +69,24 @@ export default class AzureAPI {
         pat: this.pat,
         json: true,
       })),
+
+    /**
+     * Updates the given Pull Request
+     * @param repository {String} Repository ID
+     * @param prId {String} Pull Request ID
+     * @param requestBody {PullRequestUpdateBody} Pull Request properties to update
+     * @returns {Promise<PullRequest>}
+     */
+    update: (repository, prId, { isDraft }) =>
+      /** @type Promise<PullRequest> */ (fetch(
+        `${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}?api-version=7.0`,
+        {
+          method: 'PATCH',
+          body: isDraft,
+          pat: this.pat,
+          json: true,
+        },
+      )),
 
     /**
      * Gets all Pull Request labels
@@ -140,25 +161,6 @@ export default class AzureAPI {
             comments: [{ commentType: 'text', content: comment.content }],
             status: comment.status,
           },
-          pat: this.pat,
-          json: true,
-        },
-      )),
-
-    
-    /**
-     * Updates the given Pull Request's draft state
-     * @param repository {String} Repository ID
-     * @param prId {String} Pull Request ID
-     * @param isDraft {Boolean} Whether the PR is a draft
-     * @returns {Promise<PullRequest>}
-     */
-    updateDraftState: (repository, prId, isDraft) => 
-      /** @type Promise<PullRequest> */ (fetch(
-        `${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}?api-version=7.0`,
-        {
-          method: 'PATCH',
-          body: { isDraft },
           pat: this.pat,
           json: true,
         },

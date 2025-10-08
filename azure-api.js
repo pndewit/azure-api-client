@@ -82,7 +82,9 @@ export default class AzureAPI {
         `${this.baseUrl}/git/repositories/${repository}/pullrequests/${prId}?api-version=7.0`,
         {
           method: 'PATCH',
-          body: isDraft,
+          body: {
+            isDraft,
+          },
           pat: this.pat,
           json: true,
         },

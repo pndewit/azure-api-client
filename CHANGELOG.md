@@ -2,7 +2,7 @@
 
 ## 2.2.0
 
-- feat: Add functionality to update PR's draft status
+- feat: Add method to support updating Pull Request properties
 
 ## 2.1.0
 

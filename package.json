@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/pndewit/azure-api-client#readme",
   "devDependencies": {
-    "@types/node": "^20.10.0",
-    "typescript": "^5.3.2"
+    "@types/node": "^24.7.0",
+    "typescript": "^5.9.3"
   }
 }

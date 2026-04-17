@@ -1,6 +1,6 @@
 {
   "name": "@pndewit/azure-api-client",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A tiny client to communicate with the Azure API",
   "type": "module",
   "main": "index.js",
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/pndewit/azure-api-client#readme",
   "devDependencies": {
-    "@types/node": "^24.7.0",
+    "@types/node": "^25.6.0",
     "typescript": "^5.9.3"
   }
 }

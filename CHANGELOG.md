@@ -1,5 +1,9 @@
 # @pndewit/azure-api-client
 
+## 2.2.1
+
+- fix(types): Add more properties to the PullRequest type
+
 ## 2.2.0
 
 - feat: Add method to support updating Pull Request properties

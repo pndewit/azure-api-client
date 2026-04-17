@@ -9,6 +9,9 @@ import { doFetch as fetch } from './fetch.js';
  * @typedef PullRequest {Object}
  * @property {{commitId:String}} lastMergeCommit
  * @property {{commitId:String}} lastMergeTargetCommit
+ * @property {String} sourceRefName
+ * @property {String} targetRefName
+ * @property {String} title
 
  * @typedef PullRequestUpdateBody {Object}
  * @property {Boolean} isDraft
